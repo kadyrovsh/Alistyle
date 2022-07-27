@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
+<head>{% load static %}
 <meta charset="utf-8">
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="cache-control" content="max-age=604800" />
@@ -11,24 +11,24 @@
 
 <title>Website title - bootstrap alistyle html template</title>
 
-<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 
 <!-- jQuery -->
-<script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
 
 <!-- Bootstrap4 files-->
-<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-<link href="css/bootstrap.css?v=2.0" rel="stylesheet" type="text/css"/>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
 
 <!-- Font awesome 5 -->
-<link href="fonts/fontawesome/css/all.min.css?v=2.0" type="text/css" rel="stylesheet">
+<link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
 
 <!-- custom style -->
-<link href="css/ui.css?v=2.0" rel="stylesheet" type="text/css"/>
-<link href="css/responsive.css?v=2.0" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
 
 <!-- custom javascript -->
-<script src="js/script.js?v=2.0" type="text/javascript"></script>
+<script src="{% static 'js/script.js' %} type="text/javascript"></script>
 
 </head>
 <body>
@@ -158,6 +158,9 @@
 		<li class="nav-item">
 		<a class="nav-link" href="#">Sell with us</a>
 		</li>
+		<li class="nav-item">
+          <a class="nav-link" href="/bolimlar/">Hamma bo'limlar</a>
+        </li>
 	</ul>
 	<ul class="navbar-nav ml-md-auto">
 			<li class="nav-item">
@@ -191,14 +194,10 @@
 		<nav class="nav-home-aside">
 			<h6 class="title-category">MY MARKETS <i class="d-md-none icon fa fa-chevron-down"></i></h6>
 			<ul class="menu-category">
-				<li><a href="#">Fashion and clothes</a></li>
-				<li><a href="#">Automobile and motors</a></li>
-				<li><a href="#">Gardening and agriculture</a></li>
-				<li><a href="#">Electronics and tech</a></li>
-				<li><a href="#">Packaginf and printing</a></li>
-				<li><a href="#">Home and kitchen</a></li>
-				<li><a href="#">Digital goods</a></li>
-				<li class="has-submenu"><a href="#">More items</a>
+				{% for i in bolimlar %}
+					<li><a href="">{{i.nom}}</a></li>
+				{% endfor %}
+				<li class="has-submenu"><a href="">More items</a>
 					<ul class="submenu">
 						<li><a href="#">Submenu name</a></li>
 						<li><a href="#">Great submenu</a></li>

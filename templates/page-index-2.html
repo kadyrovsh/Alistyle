@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
+<head>{% load static %}
 <meta charset="utf-8">
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="cache-control" content="max-age=604800" />
@@ -11,21 +11,21 @@
 <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
 <!-- jQuery -->
-<script src="js/jquery-2.0.0.min.js" type="text/javascript"></script>
+<script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
 
 <!-- Bootstrap4 files-->
-<script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-<link href="css/bootstrap.css?v=2.0" rel="stylesheet" type="text/css"/>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
 
 <!-- Font awesome 5 -->
-<link href="fonts/fontawesome/css/all.min.css?v=2.0" type="text/css" rel="stylesheet">
+<link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
 
 <!-- custom style -->
-<link href="css/ui.css?v=2.0" rel="stylesheet" type="text/css"/>
-<link href="css/responsive.css?v=2.0" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/ui.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
 
 <!-- custom javascript -->
-<script src="js/script.js?v=2.0" type="text/javascript"></script>
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
 
 </head>
 <body>
@@ -151,29 +151,16 @@
 				</nav> <!--  row end .// -->
 			</div> <!--  dropdown-menu dropdown-large end.// -->
 		</li>
+		  {% for bolim in bolimlar %}
         <li class="nav-item">
-          <a class="nav-link" href="#">Electronics</a>
+          <a class="nav-link" href="#">{{bolim.nom}}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Fashion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Beauty</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Motors</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sports</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gardening</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Deals</a>
-        </li>
+		  {% endfor %}
         <li class="nav-item">
           <a class="nav-link" href="#">Under $10</a>
+        </li>
+		  <li class="nav-item">
+          <a class="nav-link" href="/bolimlar/">Hamma bo'limlar</a>
         </li>
       </ul>
 </nav> <!-- navbar-main  .// -->
